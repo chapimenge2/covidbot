@@ -21,7 +21,7 @@ console.log(process)
 
 
 // db connection
-mongoose.connect('mongodb://localhost:27017/covid', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://chapi:chapi@145121@cluster0-ctxg0.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 var dbconnected = true 
 var db = mongoose.connection;
 db.on('error', ()=>{
@@ -36,7 +36,7 @@ mongoose.set('useFindAndModify', false);
 // console.log(dbconnected);
 
 
-const TOKEN = "913957091:AAEa5aAq4WYxuzYyEQ1gyh2CKDAuczZX4BU"
+const TOKEN = "906470560:AAElAm238tSjLEuNzjre8uan_1I6SsFty0Y"
 const options = {
     polling: true
 };
@@ -426,7 +426,7 @@ async function updateWorld(todayDeaths) {
         }catch(errr){
           throw errr
         }
-        worldModel.findOneAndUpdate({ _id: "5e7855cf2a0d5c0b23937a2d"}, world_data, function(err, doc){
+        worldModel.findOneAndUpdate({ _id: "5e7b070c9a51c823f76decfa"}, world_data, function(err, doc){
             if(err){
                 console.log("Updating world error", err.message);
                 return ;
