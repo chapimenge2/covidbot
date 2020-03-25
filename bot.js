@@ -41,7 +41,30 @@ const options = {
     polling: true
 };
 const bot = new TelegramBot(TOKEN, options);
+const opts = {
+      parse_mode: "HTML",
+      reply_markup: {
+        inline_keyboard: [
+          [
+            {
+              text: 'Top10',
+              callback_data: 'top10'
+            },
+            {
+              text: 'World',
+              callback_data: 'world'
+            },
+            {
+              text: 'done',
+              callback_data: 'done'
+            }
+          ]
+        ]
+      }
+    };
 
+
+    
 bot.sendMessage(441672839, "Started man")
 // to match the word start or /start in case insensetive
 bot.onText(/(\/|)start/ig,async function(msg) {
@@ -103,6 +126,7 @@ bot.onText(/world/ig, async function (msg) {
 });
 
 async function world(msg){
+
   var dell = await bot.sendMessage(msg.chat.id, "Wait a second your request is loading.please wait ...");
   try {
     const existUser = await user.exists({ chat_id: msg.chat.id })
@@ -116,27 +140,7 @@ async function world(msg){
       });
     }
     
-    const opts = {
-      parse_mode: "HTML",
-      reply_markup: {
-        inline_keyboard: [
-          [
-            {
-              text: 'Top10',
-              callback_data: 'top10'
-            },
-            {
-              text: 'World',
-              callback_data: 'world'
-            },
-            {
-              text: 'done',
-              callback_data: 'done'
-            }
-          ]
-        ]
-      }
-    };
+    
     const worldCovidData = worldModel.findOne({ _id: "5e7b070c9a51c823f76decfa" }, (err, doc) => {
       if (err) {
         bot.sendMessage(441672839, err.message)
