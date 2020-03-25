@@ -484,7 +484,7 @@ async function updatecountry() {
         return -1; 
     }
 }
-cron.schedule('*/10 * * * *', async function() {
+cron.schedule('*/10 * * * * *', async function() {
     console.log("Updating The Database"); 
     var deaths = await updatecountry() ;
     await updateWorld(deaths) ;
