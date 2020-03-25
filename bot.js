@@ -21,8 +21,7 @@ console.log(process)
 
 
 // db connection
-mongoose.connect('mongodb+srv://chapi:chapi@145121@cluster0-ctxg0.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-var dbconnected = true 
+mongoose.connect('mongodb+srv://chapi:chapi@145121@cluster0-ctxg0.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', ()=>{
     dbconnected = false
@@ -32,6 +31,7 @@ db.once('open', function () {
   console.log("Connected");
 });
 mongoose.set('useFindAndModify', false);
+
 
 // console.log(dbconnected);
 
