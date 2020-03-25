@@ -36,13 +36,13 @@ mongoose.set('useFindAndModify', false);
 // console.log(dbconnected);
 
 
-const TOKEN = "906470560:AAElAm238tSjLEuNzjre8uan_1I6SsFty0Y"
+const TOKEN = "913957091:AAEa5aAq4WYxuzYyEQ1gyh2CKDAuczZX4BU"
 const options = {
     polling: true
 };
 const bot = new TelegramBot(TOKEN, options);
 
-
+bot.sendMessage(441672839, "Started man")
 // to match the word start or /start in case insensetive
 bot.onText(/(\/|)start/ig,async function(msg) {
     console.log("Start");
@@ -137,7 +137,7 @@ async function world(msg){
         ]
       }
     };
-    const worldCovidData = worldModel.findOne({ _id: "5e7855cf2a0d5c0b23937a2d" }, (err, doc) => {
+    const worldCovidData = worldModel.findOne({ _id: "5e7b070c9a51c823f76decfa" }, (err, doc) => {
       if (err) {
         bot.sendMessage(441672839, err.message)
         bot.sendMessage(msg.chat.id, `There is Network Error from our Server please try later!\n
@@ -484,7 +484,7 @@ async function updatecountry() {
         return -1; 
     }
 }
-cron.schedule('*/10 * * * * *', async function() {
+cron.schedule('*/10 * * * *', async function() {
     console.log("Updating The Database"); 
     var deaths = await updatecountry() ;
     await updateWorld(deaths) ;
