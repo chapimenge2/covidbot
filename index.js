@@ -1,4 +1,4 @@
 require('./bot');
-require('./web');
+
 
 
